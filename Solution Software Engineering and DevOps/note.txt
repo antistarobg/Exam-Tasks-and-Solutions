@@ -1,4 +1,7 @@
 1.	GitHub repository
 •	https://github.com/antistarobg/antistaro-regular-exam
+a. These are the workflows https://github.com/antistarobg/antistaro-regular-exam/blob/main/.github/workflows/pipeline.yml
+b. Fixed failing test: https://github.com/antistarobg/antistaro-regular-exam/pull/1/commits/ae4061dbdf7af74e4cd1d1c7b5c2dea1ff57917b
 2.	Render.com link
 •	https://antistaro.onrender.com
+
