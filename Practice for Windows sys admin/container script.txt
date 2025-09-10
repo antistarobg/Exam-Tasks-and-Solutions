@@ -1,0 +1,18 @@
+mkdir C:\image1\web
+Create a custom index.html file in the web subfolder with the following content
+"<h1>My First Image</h1><img src="https://softuni.bg/Content/images/open-graph/university-default-og.png" >" | Out-File C:\image1\web\index.html
+Return to the C:\image1 folder and create a Dockerfile file with the following content
+FROM mcr.microsoft.com/windows/servercore/iis
+RUN powershell -NoProfile -Command Remove-Item -Recurse C:\inetpub\wwwroot\*
+WORKDIR /inetpub/wwwroot
+COPY web/ .
+Save and close the file
+Being in the C:\image1 folder execute the following command to create the custom image
+docker image build -t custom-iis:v1 .
+Once done, check the images list
+docker image ls
+And test the new image by running a container out of it
+docker run -d -p 8080:80 --name web1 custom-iis:v1
+Open a browser tab on the container host and navigate to http://localhost:8080/ to see the result
+Remove the running container with
+docker container rm --force web1
